@@ -3,6 +3,8 @@
 Nombre del estudiante: Andrés Ignacio Pereira Carreño
 Comisión: 34660 Python CoderHouse
 
+link video explicativo: https://www.youtube.com/watch?v=K_YKETlghPU&ab_channel=Andr%C3%A9sPereira
+
 ## Entrega final
 
 Inicialmente por favor ejecutar el comando pip install -r requirements.txt en la consola, en la misma carpeta donde está el manage.py para poder utilizar todas las funcionalidades.
