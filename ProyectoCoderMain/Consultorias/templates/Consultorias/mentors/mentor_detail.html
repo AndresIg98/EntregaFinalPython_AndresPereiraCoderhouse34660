@@ -1,0 +1,49 @@
+{% extends "Consultorias/padre.html" %}
+
+{% load static %}
+
+{% block nav %}
+{% endblock %}
+
+{% block inicio %}
+
+Detalle mentor
+
+{% endblock %}
+
+{% block resultadosparabuscador %}
+
+    <div style="color:white">
+
+    <p>Nombre: {{mentor.mentor_name}}</p>
+    <p>Experiencia: {{mentor.mentor_experience_years}} años</p>
+    <p>Fecha de nacimiento: {{mentor.mentor_date_of_birth}}</p>
+    <p>Profesión: {{mentor.mentor_proffesion}}</p>
+    <p>Correo mentor: {{mentor.mentor_email}}</p>
+
+    </div>
+
+
+    {% if  request.user.is_staff %}
+
+    <button style="background-color:crimson; border-color:black;border-radius: 22px">
+        <a style="color:white" href= '{% url "editar_mentores" mentor.mentor_name %}'> Editar </a>
+    </button>
+    
+    
+    
+    <button style="background-color:gray; border-color:black;border-radius: 22px">
+        <a style="color:white" href= '{% url "borrar_mentores" mentor.id %}'> Eliminar </a>
+    </button>
+
+    {% endif %}
+
+    <p></p>
+
+    <p><a style="color:cornsilk ;" href='{% url "resultados_mentores" %}'> Regresar </a></p>
+
+
+{% endblock %}
+
+{% block restpage %}
+{% endblock %}

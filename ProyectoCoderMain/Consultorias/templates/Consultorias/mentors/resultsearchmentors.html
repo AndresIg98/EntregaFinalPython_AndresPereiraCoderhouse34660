@@ -1,0 +1,77 @@
+{% extends "Consultorias/padre.html" %}
+
+{% load static %}
+
+{% block nav %}
+{% endblock %}
+
+{% block inicio %}
+
+Resultados mentores
+
+{% endblock %}
+
+{% block buscador %}
+
+<form action='{% url "buscaresult_mentores" %}' method="GET" >
+    
+    <div style="text-align: center;">
+    <p style="color:white">Aqui puedes buscar a tu mentor favorito:</p> 
+    <input type="text" name="mentor_name">
+    <input type="submit" value="Buscar">
+    </div>
+
+</form>
+
+{% endblock %}
+
+{% block resultadosparabuscador %}
+
+<p style="color:white">Estamos buscando el mentor con nombre {{mentor_name}}</p>
+
+{% for x in resultados %}
+
+
+
+<div style="text-align: center;">
+<p style="color:white;">
+    Nombre: {{x.mentor_name}} - Experiencia: {{x.mentor_experience_years}} años - Profesión: {{x.mentor_proffesion}} - Email: {{x.mentor_email}}
+
+    {% if  request.user.is_authenticated %}
+
+    {% if  request.user.is_staff %}
+
+    <button style="background-color:crimson; border-color:black;border-radius: 22px">
+        <a style="color:white" href= '{% url "editar_mentores" x.mentor_name %}'> Editar Mentor </a>
+    </button>
+
+    <button style="background-color:gray; border-color:black;border-radius: 22px">
+        <a style="color:white" href = '{% url "borrar_mentores" x.id %}'> Eliminar Mentor </a>
+    </button>
+    {% endif %}
+
+    {% endif %}
+</p>
+
+    </div>
+
+{% endfor %}
+
+{% if  request.user.is_authenticated %}
+
+{% if  request.user.is_staff %}
+
+<p style="color:white">¿Quieres ser un mentor? da click en el siguiente boton.</p>
+
+<button style="background-color:orangered; border-color:black;border-radius: 22px">
+    <a style="color:white" href = '{% url "crear_mentor" %}'> Crear Mentor </a>
+</button>
+
+{% endif %}
+
+{% endif %}
+
+{% endblock %}
+
+{% block restpage %}
+{% endblock %}

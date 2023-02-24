@@ -1,0 +1,46 @@
+{% extends "Consultorias/padre.html" %}
+
+{% load static %}
+
+{% block nav %}
+{% endblock %}
+
+{% block inicio %}
+
+Lista Mentores
+
+{% endblock %}
+
+{% block resultadosparabuscador %}
+
+<p style="color:white">Esta es la lista de mentores</p>
+
+{% for x in object_list %}
+<div style="text-align: center;">
+<p style="color:white;">
+    Nombre: {{x.mentor_name}}
+
+    <button style="background-color:cadetblue; border-color:black;border-radius: 22px">
+        <a style="color:white" href= '{% url "detalle_mentor" x.id %}'> Detalle </a>
+    </button>
+
+</p>
+
+    </div>
+
+{% endfor %}
+
+{% if  request.user.is_staff %}
+
+<p style="color:white">¿Quieres ser un Mentor? da click en el siguiente boton.</p>
+
+<button style="background-color:crimson; border-color:black;border-radius: 22px">
+    <a style="color:white" href = '{% url "crear_mentor" %}'> Crear Mentor </a>
+</button>
+
+{% endif %}
+
+{% endblock %}
+
+{% block restpage %}
+{% endblock %}

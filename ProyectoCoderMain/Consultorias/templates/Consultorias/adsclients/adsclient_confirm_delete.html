@@ -1,0 +1,33 @@
+{% extends "Consultorias/padre.html" %}
+
+{% load static %}
+
+{% block nav %}
+{% endblock %}
+
+{% block inicio %}
+
+Confirmación eliminar patrocinador
+
+    <form action="" method="POST" > {% csrf_token %}
+        <div style="text-align: center;">
+        <p></p>    
+        <h3 style="color:whitesmoke;">¿Estás seguro que quieres eliminar a este patrocinador?</h3>
+
+        
+        <p><input type="submit", value="Si">
+            <input type="button" onclick="history.go(-1);" value="No">
+        </p>
+        </div>
+
+    </form>
+
+{% endblock %}
+
+{% block Forms %}
+
+
+{% endblock %}
+
+{% block restpage %}
+{% endblock %}

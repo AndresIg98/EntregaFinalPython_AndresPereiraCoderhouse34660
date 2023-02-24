@@ -1,0 +1,24 @@
+{% extends "Consultorias/padre.html" %}
+
+{% load static %}
+
+{% block inicio %}
+
+Acá puedes iniciar sesión
+
+{% endblock %}
+
+{% block buscador %} 
+
+<form action = "" method = "POST"> {% csrf_token %}
+
+    <table style="margin-left:auto;margin-right:auto;color: white;">
+        {{form.as_table}}
+    </table>
+
+    <button type = "submit">Iniciar sesión</button>
+
+</form>
+
+
+{% endblock %}

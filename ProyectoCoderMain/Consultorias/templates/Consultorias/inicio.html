@@ -1,0 +1,51 @@
+{% extends "Consultorias/padre.html" %}
+
+{% load static %}
+
+{% block inicio %}
+
+Bienvenido a Consultorias Techgrow
+
+{% endblock %}
+
+{% block buscador %}
+
+<form action='{% url "buscaresult_mentores" %}' method="GET" >
+    
+    <div style="text-align: center;">
+    <p style="color:white">Aqui puedes buscar a tu mentor favorito:</p> 
+    <input type="text" name="mentor_name">
+    <input type="submit" value="Buscar">
+    </div>
+
+</form>
+
+<p> </p>
+
+{% if  request.user.is_authenticated %}
+
+<p style="color:white">Te invitamos a ver la lista completa de:</p>
+
+<button style="background-color:cadetblue; border-color:black;border-radius: 22px">
+    <a style="color:white" href= '{% url "resultados_mentores" %}'> Mentores </a>
+</button>
+
+<button style="background-color:orangered; border-color:black;border-radius: 22px">
+    <a style="color:white" href= '{% url "resultados_patro" %}'> Patrocinadores </a>
+</button>
+
+<button style="background-color:gray; border-color:black;border-radius: 22px">
+    <a style="color:white" href= '{% url "resultados_company_client" %}'> Clientes </a>
+</button>
+
+{% else %}
+
+<p style="color:white">Te invitamos a iniciar sesión y poder ver la lista total de clientes y patrocinadores de la página.</p>
+
+{% endif %}
+
+<p> </p>
+
+<p style="color:gainsboro">{{mensaje}}</p>
+
+{% endblock %}

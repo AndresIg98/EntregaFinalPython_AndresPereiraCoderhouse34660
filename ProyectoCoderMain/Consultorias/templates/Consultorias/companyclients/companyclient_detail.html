@@ -1,0 +1,43 @@
+{% extends "Consultorias/padre.html" %}
+
+{% load static %}
+
+{% block nav %}
+{% endblock %}
+
+{% block inicio %}
+
+Detalle Clientes
+
+{% endblock %}
+
+{% block resultadosparabuscador %}
+
+    <div style="color:white">
+    <p>Nombre: {{companyclient.client_name}}</p>
+    <p>Compañia: {{companyclient.client_company}}</p>
+    <p>Pais: {{companyclient.client_country}}</p>
+    <p>Correo: {{companyclient.client_email}}</p>
+    </div>
+
+    {% if  request.user.is_staff %}
+
+    <button style="background-color:crimson; border-color:black;border-radius: 22px">
+        <a style="color:white" href= '{% url "editar_company_client" companyclient.client_name %}'> Editar </a>
+    </button>
+
+    <button style="background-color:gray; border-color:black;border-radius: 22px">
+        <a style="color:white" href= '{% url "borrar_company_client" companyclient.id %}'> Eliminar </a>
+    </button>
+
+    {% endif %}
+
+    <p></p>
+
+    <p><a style="color:cornsilk ;" href='{% url "resultados_company_client" %}'> Regresar </a></p>
+
+
+{% endblock %}
+
+{% block restpage %}
+{% endblock %}

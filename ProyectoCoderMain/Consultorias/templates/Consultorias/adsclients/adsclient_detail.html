@@ -1,0 +1,51 @@
+{% extends "Consultorias/padre.html" %}
+
+{% load static %}
+
+{% block nav %}
+{% endblock %}
+
+{% block inicio %}
+
+Detalle Patrocinador
+
+{% endblock %}
+
+{% block resultadosparabuscador %}
+
+    <div style="color:white">
+    <p>Nombre: {{adsclient.ads_client_name}}</p>
+    <p>Compañia: {{adsclient.ads_client_company}}</p>
+    <p>Correo: {{adsclient.ads_client_email}}</p>
+    {% if  request.user.is_staff %}
+    
+    <p>Inversión: ${{adsclient.ads_client_investment}}</p>
+
+    {% endif %}
+    <p>Tipo de Inversión: {{adsclient.ads_client_type_investment}}</p>
+    <p>Fecha de Inversión: {{adsclient.ads_client_date_investment}}</p>
+    </div>
+
+
+    {% if  request.user.is_staff %}
+
+
+    <button style="background-color:crimson; border-color:black;border-radius: 22px">
+        <a style="color:white" href= '{% url "editar_patro" adsclient.ads_client_name %}'> Editar </a>
+    </button>
+
+    <button style="background-color:gray; border-color:black;border-radius: 22px">
+        <a style="color:white" href= '{% url "eliminar_patro" adsclient.id %}'> Eliminar </a>
+    </button>
+
+    {% endif %}
+
+    <p></p>
+
+    <p><a style="color:cornsilk ;" href='{% url "resultados_patro" %}'> Regresar </a></p>
+
+
+{% endblock %}
+
+{% block restpage %}
+{% endblock %}

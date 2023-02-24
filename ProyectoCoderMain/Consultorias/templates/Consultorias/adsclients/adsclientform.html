@@ -1,0 +1,41 @@
+{% extends "Consultorias/padre.html" %}
+
+{% load static %}
+
+{% block nav %}
+{% endblock %}
+
+{% block inicio %}
+
+Aqui puedes crear un patrocinador
+
+{% endblock %}
+
+{% block Forms %}
+
+<section class="page-section bg-dark" id="forms">
+
+    <div style="text-align: center;">
+    <h2 class="text-white font-weight-bold">  Ingresa los datos</h2>
+    </div>
+    
+    <hr class="divider" />
+
+    <form action="" method="POST" > {% csrf_token %}
+        
+        <table style="margin-left:auto;margin-right:auto;color: white;">
+            {{myadsClientForm.as_table}}
+        </table>
+
+        <div style="text-align: center;">
+            <input type="submit", value="Enviar">
+        </div>
+
+    </form>
+
+</section>
+
+{% endblock %}
+
+{% block restpage %}
+{% endblock %}

@@ -1,0 +1,47 @@
+{% extends "Consultorias/padre.html" %}
+
+{% load static %}
+
+{% block nav %}
+{% endblock %}
+
+{% block inicio %}
+
+Lista Clientes
+
+{% endblock %}
+
+{% block resultadosparabuscador %}
+
+<p style="color:white">Esta es la lista de clientes</p>
+
+{% for x in object_list %}
+<div style="text-align: center;">
+<p style="color:white;">
+    Nombre: {{x.client_name}}
+
+    <button style="background-color:cadetblue; border-color:black;border-radius: 22px">
+        <a style="color:white" href= '{% url "detalle_company_client" x.id %}'> Detalle </a>
+    </button>
+
+</p>
+
+    </div>
+
+{% endfor %}
+
+{% if  request.user.is_staff %}
+
+<p style="color:white">¿Quieres ser un Cliente? da click en el siguiente boton.</p>
+
+
+<button style="background-color:crimson; border-color:black;border-radius: 22px">
+    <a style="color:white" href = '{% url "crear_company_client" %}'> Crear Cliente </a>
+</button>
+
+{% endif %}
+
+{% endblock %}
+
+{% block restpage %}
+{% endblock %}
